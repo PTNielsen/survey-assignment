@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   
   def index
     @questions = Question.all
@@ -15,15 +16,13 @@ class QuestionsController < ApplicationController
 
   def create
     questions_params = params[:question]
-    @questions = Question.new(
+    @questions = current_user.questions.new(
       title: questions_params[:title],
       description: questions_params[:description]
     )
     if @questions.save
-      # redirect_to i
       redirect_to question_path(@questions), notice: "Your question has been asked!"
     else
-      # redisplay form with errors
       render :new
     end
   end

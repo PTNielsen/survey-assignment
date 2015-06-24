@@ -10,12 +10,14 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'devise'
 
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 
 group :development, :test do
   gem 'quiet_assets'
+  gem 'letter_opener'
   gem 'better_errors'
   gem 'pry-rails'
   gem 'byebug'

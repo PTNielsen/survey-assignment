@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @answers = Answer.new
@@ -8,15 +9,13 @@ class AnswersController < ApplicationController
   def create
     @questions = Question.find params[:question_id]
     answers_params = params[:answer]
-    @answers = Answer.new(
+    @answers = current_user.answers.new(
       question_id: answers_params[:question_id],
       description: answers_params[:description]
     )
     if @answers.save
-      # redirect_to i
       redirect_to question_path(@questions), notice: "Your answer has been submitted!"
     else
-      # redisplay form with errors
       render :new
     end
   end
