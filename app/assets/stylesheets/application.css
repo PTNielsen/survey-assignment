@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.background {
+  background-image: url("http://images.tvrage.com/news/atkinson-says-goodbye-to-beloved-character-mr-bean.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
