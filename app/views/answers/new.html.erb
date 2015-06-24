@@ -9,6 +9,6 @@
 
 <%= bootstrap_form_for @answers, url: question_answers_path do |f| %>
   <%= f.hidden_field :question_id, :value => @questions.id %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description, label: "My answer:"%>
   <button>Submit</button>
 <% end %>
