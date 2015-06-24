@@ -1,0 +1,14 @@
+<h1><%= @questions.title %></h1>
+<h3><%= @questions.description %></h3>
+
+<br>
+
+<% if @answers.errors.any? %>
+  <p><strong>Error!</strong> <%= @answers.errors.full_messages.to_sentence %></p>
+<% end %>
+
+<%= bootstrap_form_for @answers, url: question_answers_path do |f| %>
+  <%= f.hidden_field :question_id, :value => @questions.id %>
+  <%= f.text_area :description %>
+  <button>Submit</button>
+<% end %>

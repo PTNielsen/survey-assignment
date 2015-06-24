@@ -1,0 +1,19 @@
+<h1>SIR VAY DA GAWD</h1>
+
+<br>
+
+<%= button_to "Submit a question!", new_question_path, method: :get %>
+
+<br>
+
+<h6><strong>Previously asked questions:</strong></h6>
+
+<br>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li>
+      <%= link_to question.title, question %>
+    </li>
+  <% end %>
+</ul>

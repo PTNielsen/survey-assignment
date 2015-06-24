@@ -1,0 +1,20 @@
+<h1><%= @questions.title %></h1>
+<h3><%= @questions.description %></h3>
+
+<br>
+
+<%= button_to "Submit an answer", new_question_answer_path(@questions), method: :get %>
+
+<br>
+
+<h6><strong>Answers:</strong></h6>
+
+<br>
+
+<ul>
+  <% @answers.each do |answer| %>
+    <li>
+      <%= answer.description %>
+    </li>
+  <% end %>
+</ul>
